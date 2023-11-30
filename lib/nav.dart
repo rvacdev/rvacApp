@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rvac/home_screen.dart';
+import 'package:rvac/log_in.dart';
 import "package:rvac/volunteer.dart";
 import 'package:rvac/contact_us.dart';
 
@@ -16,6 +17,8 @@ class _NavState extends State<Nav> {
     const Home(),
     const Volunteer(),
     const ContactUs(),
+    const Placeholder(),
+    const LoginPage()
   ];
 
   void _onSelected(int index) {
