@@ -15,7 +15,7 @@ class _NavState extends State<Nav> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = <Widget>[
     Home(),
-    const Volunteer(),
+    Volunteer(),
     const ContactUs(),
     const LoginPage(),
     const Placeholder(),
