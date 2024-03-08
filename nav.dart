@@ -31,8 +31,12 @@ class _NavState extends State<Nav> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset('images/test.jpeg'),
-        backgroundColor: Colors.red,
+        title: Image.asset(
+          'images/front.png',
+          fit: BoxFit.cover,
+        ),
+        titleSpacing: 0,
+        backgroundColor: Colors.black,
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),

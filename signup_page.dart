@@ -13,11 +13,12 @@ class SignUpPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign Up'),
+        title: const Text('Sign Up'),
       ),
       body: Center(
-        child: Container(
-          width: 300, // Set the width of the container to control the form's width
+        child: SizedBox(
+          width:
+              300, // Set the width of the container to control the form's width
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Form(
@@ -25,22 +26,24 @@ class SignUpPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Sign Up to Volunteer',
                     style: TextStyle(
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Email',
                       hintText: 'Enter a valid Email Address',
                       prefixIcon: Icon(Icons.email),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 20.0), // Adjust the horizontal padding
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 20.0), // Adjust the horizontal padding
                       isDense: true, // Reduce the vertical space
-                      labelStyle: TextStyle(fontSize: 16.0), // Adjust the font size of the label
+                      labelStyle: TextStyle(
+                          fontSize: 16.0), // Adjust the font size of the label
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -52,9 +55,10 @@ class SignUpPage extends StatelessWidget {
                       userEmail = value;
                     },
                   ),
-                  SizedBox(height: 20.0), // Add vertical space between fields
+                  const SizedBox(
+                      height: 20.0), // Add vertical space between fields
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Username',
                       hintText: 'Enter a Username',
                       prefixIcon: Icon(Icons.person),
@@ -72,10 +76,11 @@ class SignUpPage extends StatelessWidget {
                       userName = value;
                     },
                   ),
-                  SizedBox(height: 20.0), // Add vertical space between fields
+                  const SizedBox(
+                      height: 20.0), // Add vertical space between fields
                   TextFormField(
                     obscureText: true,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Password',
                       hintText: 'Enter a Password (min. 8 characters)',
                       prefixIcon: Icon(Icons.lock),
@@ -96,7 +101,7 @@ class SignUpPage extends StatelessWidget {
                       userPassword = value;
                     },
                   ),
-                  SizedBox(height: 24.0),
+                  const SizedBox(height: 24.0),
                   ElevatedButton(
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
@@ -109,14 +114,14 @@ class SignUpPage extends StatelessWidget {
                         if (data['success']) {
                           // Signup successful
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
+                            const SnackBar(
                               content: Text('Signup Successful!'),
                             ),
                           );
                         } else {
                           // Signup failed
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
+                            const SnackBar(
                               content: Text('Signup Failed. Please try again.'),
                             ),
                           );

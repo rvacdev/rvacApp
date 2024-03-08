@@ -3,7 +3,6 @@ import 'package:url_launcher/url_launcher.dart';
 import "package:rvac/signup_page.dart";
 import "package:rvac/api.dart";
 
-
 class Volunteer extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
 
@@ -14,7 +13,8 @@ class Volunteer extends StatelessWidget {
 
     return Center(
       child: Container(
-        width: 300, // Set the width of the container to control the form's width
+        width:
+            300, // Set the width of the container to control the form's width
         child: Form(
           key: _formKey,
           child: Column(
@@ -27,7 +27,8 @@ class Volunteer extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 16.0), // Add some space between header and fields
+              SizedBox(
+                  height: 16.0), // Add some space between header and fields
               TextFormField(
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -58,7 +59,8 @@ class Volunteer extends StatelessWidget {
                   hintText: 'Password',
                 ),
               ),
-              SizedBox(height: 24.0), // Add more space between fields and button
+              SizedBox(
+                  height: 24.0), // Add more space between fields and button
               ElevatedButton(
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
@@ -77,7 +79,7 @@ class Volunteer extends StatelessWidget {
                     } else {
                       // Login failed
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
+                        const SnackBar(
                           content: Text('Login Failed. Please try again.'),
                         ),
                       );
@@ -86,11 +88,13 @@ class Volunteer extends StatelessWidget {
                 },
                 child: const Text('Login'),
               ),
-              SizedBox(height: 16.0), // Add some space between button and "Don't have an account?"
+              const SizedBox(
+                  height:
+                      16.0), // Add some space between button and "Don't have an account?"
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("Don't have an account? "),
+                  const Text("Don't have an account? "),
                   GestureDetector(
                     onTap: () {
                       // Navigate to the signup page when "Sign Up" is tapped
@@ -99,7 +103,7 @@ class Volunteer extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => SignUpPage()),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       "Sign Up",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
