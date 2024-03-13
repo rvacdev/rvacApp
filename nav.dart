@@ -60,8 +60,8 @@ class _NavState extends State<Nav> {
             backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.car_crash),
-            label: 'We Crashed',
+            icon: Icon(Icons.punch_clock),
+            label: 'Classes',
             backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
