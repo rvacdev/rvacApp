@@ -13,12 +13,11 @@ class SignUpPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sign Up'),
+        title: Text('Sign Up'),
       ),
       body: Center(
-        child: SizedBox(
-          width:
-              300, // Set the width of the container to control the form's width
+        child: Container(
+          width: 300,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Form(
@@ -26,24 +25,22 @@ class SignUpPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
+                  Text(
                     'Sign Up to Volunteer',
                     style: TextStyle(
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 16.0),
+                  SizedBox(height: 16.0),
                   TextFormField(
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'Email',
                       hintText: 'Enter a valid Email Address',
                       prefixIcon: Icon(Icons.email),
-                      contentPadding: EdgeInsets.symmetric(
-                          horizontal: 20.0), // Adjust the horizontal padding
-                      isDense: true, // Reduce the vertical space
-                      labelStyle: TextStyle(
-                          fontSize: 16.0), // Adjust the font size of the label
+                      contentPadding: EdgeInsets.symmetric(horizontal: 20.0),
+                      isDense: true,
+                      labelStyle: TextStyle(fontSize: 16.0),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -55,10 +52,9 @@ class SignUpPage extends StatelessWidget {
                       userEmail = value;
                     },
                   ),
-                  const SizedBox(
-                      height: 20.0), // Add vertical space between fields
+                  SizedBox(height: 20.0),
                   TextFormField(
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'Username',
                       hintText: 'Enter a Username',
                       prefixIcon: Icon(Icons.person),
@@ -76,11 +72,10 @@ class SignUpPage extends StatelessWidget {
                       userName = value;
                     },
                   ),
-                  const SizedBox(
-                      height: 20.0), // Add vertical space between fields
+                  SizedBox(height: 20.0),
                   TextFormField(
                     obscureText: true,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'Password',
                       hintText: 'Enter a Password (min. 8 characters)',
                       prefixIcon: Icon(Icons.lock),
@@ -101,28 +96,34 @@ class SignUpPage extends StatelessWidget {
                       userPassword = value;
                     },
                   ),
-                  const SizedBox(height: 24.0),
+                  SizedBox(height: 24.0),
                   ElevatedButton(
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        final data = await Api.signUp(
-                          userEmail,
-                          userName,
-                          userPassword,
-                        );
-
-                        if (data['success']) {
-                          // Signup successful
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Signup Successful!'),
-                            ),
+                        try {
+                          final data = await Api.signUp(
+                            userEmail,
+                            userName,
+                            userPassword,
                           );
-                        } else {
-                          // Signup failed
+
+                          if (data['success']) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Signup Successful!'),
+                              ),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Signup Failed. Please try again.'),
+                              ),
+                            );
+                          }
+                        } catch (e) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Signup Failed. Please try again.'),
+                            SnackBar(
+                              content: Text('An error occurred. Please try again later.'),
                             ),
                           );
                         }
