@@ -123,7 +123,7 @@ class SignUpPage extends StatelessWidget {
                         } catch (e) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                              content: Text('An error occurred. Please try again later.'),
+                              content: Text('An error occurred. Please check your internet connection or try again later.'),
                             ),
                           );
                         }
